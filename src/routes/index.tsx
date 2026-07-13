@@ -13,10 +13,10 @@ export const Route = createFileRoute("/")({
         content:
           "Il menu 2026 del Mamma li Turchi a Tricase Porto: antipasti, focacce, insalatone, pizze classiche, speciali e bianche, dolci, birre e vini del Salento.",
       },
-      { property: "og:title", content: "Mamma li Turchi — Menu 2026" },
+      { property: "og:title", content: "Mamma li Turchi — Menu | Antipasteria · Ristorante · Pizzeria a Tricase Porto" },
       {
         property: "og:description",
-        content: "Antipasteria, ristorante e pizzeria a Tricase Porto. Sapori del Salento sotto il cielo stellato.",
+        content: "Il menu 2026 del Mamma li Turchi a Tricase Porto: antipasti, focacce, insalatone, pizze classiche, speciali e bianche, dolci, birre e vini del Salento.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
