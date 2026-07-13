@@ -46,9 +46,20 @@ export const menu: MenuSection[] = [
     ],
   },
   {
-    id: "classiche",
-    title: "Pizze Classiche",
+    id: "pizze",
+    title: "Pizze",
     items: [
+      // Speciali (starred) first
+      { name: "Bufalina", description: "Pomodoro, mozzarella di bufala, basilico", price: "8,5", starred: true },
+      { name: "Capocollo", description: "Pomodoro, mozzarella, capocollo di Martina Franca, bocconcino di bufala, rucola", price: "9,5", starred: true },
+      { name: "Della Torre", description: "Pomodoro, mozzarella, salamino piccante, scamorza affumicata", price: "8,5", starred: true },
+      { name: "Starry", description: "Pomodoro, mozzarella, bresaola, rucola, grana", price: "9", starred: true },
+      { name: "Salsiccia", description: "Pomodoro, mozzarella, salsiccia, rucola, grana", price: "9", starred: true },
+      { name: "Contessa", description: "Pomodoro, mozzarella, gorgonzola, speck, noci", price: "9", starred: true },
+      { name: "Piccantina", description: "Pomodoro, mozzarella, salamino piccante, gorgonzola, rucola", price: "9", starred: true },
+      { name: "Squisita", description: "Pomodoro, mozzarella, prosciutto cotto, funghi porcini, gorgonzola", price: "9,5", starred: true },
+      { name: "Profumata", description: "Pomodoro, mozzarella, pancetta, cipolla", price: "8,5", starred: true },
+      // Classiche
       { name: "Margherita", description: "Pomodoro, mozzarella, olive", price: "6" },
       { name: "Caprese", description: "Mozzarella, pomodorini, rucola, grana", price: "8" },
       { name: "Capricciosa", description: "Pomodoro, mozzarella, cotto, funghi, carciofi, olive", price: "8" },
@@ -64,21 +75,6 @@ export const menu: MenuSection[] = [
       { name: "Salentina", description: "Pomodoro, mozzarella, tonno, cipolla", price: "7,5" },
     ],
     note: "Alcuni prodotti potrebbero essere surgelati",
-  },
-  {
-    id: "speciali",
-    title: "Pizze Speciali",
-    items: [
-      { name: "Bufalina", description: "Pomodoro, mozzarella di bufala, basilico", price: "8,5" },
-      { name: "Capocollo", description: "Pomodoro, mozzarella, capocollo di Martina Franca, bocconcino di bufala, rucola", price: "9,5" },
-      { name: "Della Torre", description: "Pomodoro, mozzarella, salamino piccante, scamorza affumicata", price: "8,5" },
-      { name: "Starry", description: "Pomodoro, mozzarella, bresaola, rucola, grana", price: "9" },
-      { name: "Salsiccia", description: "Pomodoro, mozzarella, salsiccia, rucola, grana", price: "9" },
-      { name: "Contessa", description: "Pomodoro, mozzarella, gorgonzola, speck, noci", price: "9" },
-      { name: "Piccantina", description: "Pomodoro, mozzarella, salamino piccante, gorgonzola, rucola", price: "9" },
-      { name: "Squisita", description: "Pomodoro, mozzarella, prosciutto cotto, funghi porcini, gorgonzola", price: "9,5" },
-      { name: "Profumata", description: "Pomodoro, mozzarella, pancetta, cipolla", price: "8,5" },
-    ],
   },
   {
     id: "bianche",
