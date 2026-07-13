@@ -143,7 +143,7 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.25 }}
           className="mt-4 text-5xl sm:text-7xl font-medium text-ink"
         >
-          Il Menu 2026
+          Il Menu
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 14 }}
