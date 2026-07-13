@@ -1,24 +1,270 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import logoAsset from "@/assets/logo.png.asset.json";
+import { menu, type MenuSection } from "@/lib/menu-data";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Mamma li Turchi — Menu | Antipasteria · Ristorante · Pizzeria a Tricase Porto" },
+      {
+        name: "description",
+        content:
+          "Il menu 2026 del Mamma li Turchi a Tricase Porto: antipasti, focacce, insalatone, pizze classiche, speciali e bianche, dolci, birre e vini del Salento.",
+      },
+      { property: "og:title", content: "Mamma li Turchi — Menu 2026" },
+      {
+        property: "og:description",
+        content: "Antipasteria, ristorante e pizzeria a Tricase Porto. Sapori del Salento sotto il cielo stellato.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: MenuPage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function MenuPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative min-h-screen">
+      <Nav />
+      <Hero />
+      <main className="mx-auto max-w-4xl px-6 pb-32">
+        {menu.map((section, i) => (
+          <Section key={section.id} section={section} index={i} />
+        ))}
+        <Coperto />
+      </main>
+      <Footer />
     </div>
+  );
+}
+
+function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState<string>(menu[0].id);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveId(e.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
+    );
+    menu.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
+        scrolled
+          ? "backdrop-blur-md bg-[color-mix(in_oklab,var(--background)_82%,transparent)] border-b border-border/60 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)]"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3">
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logoAsset.url} alt="Mamma li Turchi" className="h-11 w-auto" />
+          <span className="sr-only">Mamma li Turchi</span>
+        </a>
+        <nav className="hidden md:block">
+          <ul className="flex max-w-[70vw] items-center gap-1 overflow-x-auto text-sm">
+            {menu.map((s) => (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  className={`relative rounded-full px-3 py-1.5 transition-colors ${
+                    activeId === s.id
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {s.title}
+                  {activeId === s.id && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 -z-10 rounded-full bg-primary/10"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <a
+          href="tel:+393281021493"
+          className="hidden sm:inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[0_10px_25px_-10px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition hover:-translate-y-0.5"
+        >
+          Prenota
+        </a>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="top" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <motion.img
+          initial={{ opacity: 0, y: 20, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          src={logoAsset.url}
+          alt="Mamma li Turchi"
+          className="mx-auto h-40 sm:h-52 w-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
+        />
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="mt-6 text-xs uppercase tracking-[0.35em] text-secondary"
+        >
+          Antipasteria · Ristorante · Pizzeria
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="mt-4 text-5xl sm:text-7xl font-medium text-ink"
+        >
+          Il Menu 2026
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="mx-auto mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground"
+        >
+          Sapori del Salento a Tricase Porto, tra il chiaro di luna e i profumi della macchia
+          mediterranea. Una cucina che racconta il nostro mare e la nostra terra.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mx-auto mt-10 h-px w-40 divider-swash"
+        />
+      </div>
+    </section>
+  );
+}
+
+function Section({ section, index }: { section: MenuSection; index: number }) {
+  return (
+    <motion.section
+      id={section.id}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="scroll-mt-28 py-14 sm:py-20"
+    >
+      <div className="mb-10 flex items-baseline gap-4">
+        <span className="font-display text-sm tabular-nums text-secondary/70">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-medium text-ink">{section.title}</h2>
+        <div className="h-px flex-1 translate-y-[-4px] bg-gradient-to-r from-primary/40 via-secondary/30 to-transparent" />
+      </div>
+
+      <ul className="space-y-7">
+        {section.items.map((item, i) => (
+          <motion.li
+            key={item.name}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.25) }}
+            className="group"
+          >
+            <div className="flex items-baseline">
+              <h3 className="font-display text-lg sm:text-xl text-ink flex items-center gap-2">
+                {item.starred && <span className="text-accent">★</span>}
+                <span className="transition-colors group-hover:text-primary">{item.name}</span>
+              </h3>
+              <span className="price-dots" aria-hidden />
+              <span className="font-display text-lg sm:text-xl tabular-nums text-primary">
+                {item.price === "—" ? item.price : `€ ${item.price}`}
+              </span>
+            </div>
+            {item.description && (
+              <p className="mt-1 max-w-2xl text-sm sm:text-[15px] leading-relaxed text-muted-foreground">
+                {item.description}
+              </p>
+            )}
+          </motion.li>
+        ))}
+      </ul>
+
+      {section.note && (
+        <p className="mt-8 text-xs italic text-muted-foreground/80">* {section.note}</p>
+      )}
+    </motion.section>
+  );
+}
+
+function Coperto() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="mx-auto mt-20 max-w-md rounded-2xl border border-border bg-card/60 px-8 py-6 text-center backdrop-blur"
+    >
+      <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Servizio</p>
+      <p className="mt-2 font-display text-2xl text-ink">Coperto € 2,00</p>
+    </motion.div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="relative border-t border-border/60 bg-[color-mix(in_oklab,var(--secondary)_8%,var(--background))]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:grid-cols-3">
+        <div>
+          <img src={logoAsset.url} alt="Mamma li Turchi" className="h-16 w-auto" />
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Movida salentina dal 1980. Un locale sospeso tra il porto e le stelle.
+          </p>
+        </div>
+        <div>
+          <h4 className="text-xs uppercase tracking-[0.3em] text-secondary">Dove siamo</h4>
+          <p className="mt-3 text-sm leading-relaxed text-foreground">
+            Tricase Porto<br />Via Borgo Pescatori<br />Salento, Puglia
+          </p>
+        </div>
+        <div>
+          <h4 className="text-xs uppercase tracking-[0.3em] text-secondary">Contatti</h4>
+          <p className="mt-3 text-sm text-foreground">
+            <a href="tel:+393281021493" className="hover:text-primary">328 102 14 93</a>
+          </p>
+          <p className="mt-1 text-sm text-foreground">
+            <a href="https://www.mammaliturchi.com" className="hover:text-primary">
+              www.mammaliturchi.com
+            </a>
+          </p>
+        </div>
+      </div>
+      <div className="border-t border-border/60 py-5 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} Mamma li Turchi ® — Tricase Porto
+      </div>
+    </footer>
   );
 }
