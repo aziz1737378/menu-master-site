@@ -89,8 +89,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Mamma li Turchi — Menu | Antipasteria · Ristorante · Pizzeria a Tricase Porto" },
       { property: "og:description", content: "Il menu 2026 del Mamma li Turchi a Tricase Porto: antipasti, focacce, insalatone, pizze classiche, speciali e bianche, dolci, birre e vini del Salento." },
       { name: "twitter:description", content: "Il menu 2026 del Mamma li Turchi a Tricase Porto: antipasti, focacce, insalatone, pizze classiche, speciali e bianche, dolci, birre e vini del Salento." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/03192d41-62af-475a-b63a-bae51bf8fd04" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/03192d41-62af-475a-b63a-bae51bf8fd04" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/BJD6Yz2IJPOyzS43v9F5ekXyzy93/social-images/social-1783980640106-logo_mammaliturchi_positivo.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/BJD6Yz2IJPOyzS43v9F5ekXyzy93/social-images/social-1783980640106-logo_mammaliturchi_positivo.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
