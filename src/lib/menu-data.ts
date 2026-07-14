@@ -10,8 +10,11 @@ export type MenuSection = {
   title: string;
   subtitle?: string;
   note?: string;
+  image?: string;
   items: MenuItem[];
 };
+
+const categoryImage = (name: string) => `/categories/${name}.png`;
 
 export const menu: MenuSection[] = [
   {
