@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import logoAsset from "@/assets/logo.png.asset.json";
 import { menu, type MenuSection } from "@/lib/menu-data";
+
+const logoUrl = "/logo.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -95,7 +97,7 @@ function Nav() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="Mamma li Turchi" className="h-11 w-auto" />
+          <img src={logoUrl} alt="Mamma li Turchi" className="h-11 w-auto" />
           <span className="sr-only">Mamma li Turchi</span>
         </a>
         <nav className="hidden md:block">
@@ -142,7 +144,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          src={logoAsset.url}
+          src={logoUrl}
           alt="Mamma li Turchi"
           className="mx-auto h-40 sm:h-52 w-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
         />
@@ -154,23 +156,34 @@ function Hero() {
         >
           Antipasteria · Ristorante · Pizzeria
         </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
-          className="mt-4 text-5xl sm:text-7xl font-medium text-ink"
-        >
-          Il Menu
-        </motion.h1>
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="mx-auto mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground"
+          className="mx-auto mt-8 max-w-2xl space-y-4 text-left sm:text-center text-[15px] sm:text-base leading-relaxed text-muted-foreground"
         >
-          Sapori del Salento a Tricase Porto, tra il chiaro di luna e i profumi della macchia
-          mediterranea. Una cucina che racconta il nostro mare e la nostra terra.
-        </motion.p>
+          <p>
+            Il <span className="text-ink font-medium">Mamma li Turchi</span> è un locale che pone le sue radici nella movida
+            salentina circa quaranta anni fa e nel corso del tempo la sua storia s'infittisce di ricordi,
+            esperienze ed emozioni di più generazioni.
+          </p>
+          <p>
+            Nasce come <em>Starry Night</em>, nome rappresentativo del fascino che avvolge i suoi ospiti nelle
+            magiche sere trascorse al chiaro di luna, sotto il cielo stellato, tra colori e profumi della macchia
+            mediterranea che lo circondano.
+          </p>
+          <p>
+            Negli anni cambia look e nome in <em>Mamma li Turchi</em> — prendendo spunto dalla storica esclamazione
+            dell'avvistamento dei Turchi che sbarcavano lungo le nostre coste — ma ciò nonostante porta avanti gli
+            stessi principi di svago, intrattenimento e divertimento puro per cui nacque negli anni '80.
+          </p>
+          <p>
+            In linea allo sviluppo e alla gestione delle diverse realtà del nostro Porto, ora
+            <span className="whitespace-nowrap"> "Porto Museo di Tricase"</span>, il locale, sempre più apprezzato e
+            frequentato, cresce assieme ai servizi offerti, pensando ad una ristorazione che possa rappresentare
+            i sapori tipici del nostro territorio.
+          </p>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -256,7 +269,7 @@ function Footer() {
     <footer className="relative border-t border-border/60 bg-[color-mix(in_oklab,var(--secondary)_8%,var(--background))]">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:grid-cols-3">
         <div>
-          <img src={logoAsset.url} alt="Mamma li Turchi" className="h-16 w-auto" />
+          <img src={logoUrl} alt="Mamma li Turchi" className="h-16 w-auto" />
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             Movida salentina dal 1980. Un locale sospeso tra il porto e le stelle.
           </p>
