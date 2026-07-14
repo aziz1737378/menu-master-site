@@ -49,19 +49,18 @@ export const menu: MenuSection[] = [
     id: "pizze",
     title: "Pizze",
     items: [
-      // Speciali (starred) — sorted high to low price
+      // Tutte le pizze — ordinate dal prezzo più alto al più basso (★ = speciali)
       { name: "Capocollo", description: "Pomodoro, mozzarella, capocollo di Martina Franca, bocconcino di bufala, rucola", price: "9,5", starred: true },
       { name: "Squisita", description: "Pomodoro, mozzarella, prosciutto cotto, funghi porcini, gorgonzola", price: "9,5", starred: true },
       { name: "Starry", description: "Pomodoro, mozzarella, bresaola, rucola, grana", price: "9", starred: true },
       { name: "Salsiccia", description: "Pomodoro, mozzarella, salsiccia, rucola, grana", price: "9", starred: true },
       { name: "Contessa", description: "Pomodoro, mozzarella, gorgonzola, speck, noci", price: "9", starred: true },
       { name: "Piccantina", description: "Pomodoro, mozzarella, salamino piccante, gorgonzola, rucola", price: "9", starred: true },
+      { name: "Quattro Formaggi", description: "Pomodoro, mozzarella, gorgonzola, scamorza, grana", price: "9" },
+      { name: "Mediterranea", description: "Pomodoro, mozzarella, prosciutto crudo, rucola, grana", price: "9" },
       { name: "Bufalina", description: "Pomodoro, mozzarella di bufala, basilico", price: "8,5", starred: true },
       { name: "Della Torre", description: "Pomodoro, mozzarella, salamino piccante, scamorza affumicata", price: "8,5", starred: true },
       { name: "Profumata", description: "Pomodoro, mozzarella, pancetta, cipolla", price: "8,5", starred: true },
-      // Classiche — sorted high to low price
-      { name: "Quattro Formaggi", description: "Pomodoro, mozzarella, gorgonzola, scamorza, grana", price: "9" },
-      { name: "Mediterranea", description: "Pomodoro, mozzarella, prosciutto crudo, rucola, grana", price: "9" },
       { name: "Fumé", description: "Pomodoro, mozzarella, scamorza, pancetta", price: "8,5" },
       { name: "Caprese", description: "Mozzarella, pomodorini, rucola, grana", price: "8" },
       { name: "Capricciosa", description: "Pomodoro, mozzarella, cotto, funghi, carciofi, olive", price: "8" },
