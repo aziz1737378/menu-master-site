@@ -97,7 +97,7 @@ function Nav() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="Mamma li Turchi" className="h-11 w-auto" />
+          <img src={logoUrl} alt="Mamma li Turchi" className="h-11 w-auto" />
           <span className="sr-only">Mamma li Turchi</span>
         </a>
         <nav className="hidden md:block">
@@ -144,7 +144,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          src={logoAsset.url}
+          src={logoUrl}
           alt="Mamma li Turchi"
           className="mx-auto h-40 sm:h-52 w-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
         />
@@ -258,7 +258,7 @@ function Footer() {
     <footer className="relative border-t border-border/60 bg-[color-mix(in_oklab,var(--secondary)_8%,var(--background))]">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:grid-cols-3">
         <div>
-          <img src={logoAsset.url} alt="Mamma li Turchi" className="h-16 w-auto" />
+          <img src={logoUrl} alt="Mamma li Turchi" className="h-16 w-auto" />
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             Movida salentina dal 1980. Un locale sospeso tra il porto e le stelle.
           </p>
