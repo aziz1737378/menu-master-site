@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import logoAsset from "@/assets/logo.png.asset.json";
 import { menu, type MenuSection } from "@/lib/menu-data";
+
+const logoUrl = "/logo.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
