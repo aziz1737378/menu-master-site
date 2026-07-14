@@ -205,12 +205,18 @@ function Section({ section, index }: { section: MenuSection; index: number }) {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="scroll-mt-28 py-14 sm:py-20"
     >
-      <div className="mb-10 flex items-baseline gap-4">
-        <span className="font-display text-sm tabular-nums text-secondary/70">
-          {String(index + 1).padStart(2, "0")}
+      <div className="mb-10 flex flex-col items-center gap-4">
+        <span className="font-display text-xs tabular-nums tracking-[0.3em] text-secondary/70">
+          — {String(index + 1).padStart(2, "0")} —
         </span>
-        <h2 className="text-3xl sm:text-4xl font-medium text-ink">{section.title}</h2>
-        <div className="h-px flex-1 translate-y-[-4px] bg-gradient-to-r from-primary/40 via-secondary/30 to-transparent" />
+        <img
+          src={`/categories/${section.id}.png`}
+          alt={section.title}
+          loading="lazy"
+          className="h-24 sm:h-32 md:h-36 w-auto max-w-full drop-shadow-[0_10px_20px_rgba(27,61,122,0.15)]"
+        />
+        <h2 className="sr-only">{section.title}</h2>
+        <div className="h-px w-40 bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
       </div>
 
       <ul className="space-y-7">
