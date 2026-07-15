@@ -2,8 +2,26 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { menu, type MenuSection } from "@/lib/menu-data";
+import photo7603 from "@/assets/photos/IMG_7603.jpg.asset.json";
+import photo7606 from "@/assets/photos/IMG_7606.jpg.asset.json";
+import photo7608 from "@/assets/photos/IMG_7608.jpg.asset.json";
+import photo7609 from "@/assets/photos/IMG_7609.jpg.asset.json";
+import photo7610 from "@/assets/photos/IMG_7610.jpg.asset.json";
+import photo7611 from "@/assets/photos/IMG_7611.jpg.asset.json";
+import photo7613 from "@/assets/photos/IMG_7613.jpg.asset.json";
 
 const logoUrl = "/logo.png";
+
+type Placement = { url: string; align: "left" | "right" | "wide" };
+const photoPlacements: Record<string, Placement> = {
+  antipasti: { url: photo7613.url, align: "right" },
+  focacce: { url: photo7603.url, align: "left" },
+  pizze: { url: photo7610.url, align: "wide" },
+  bianche: { url: photo7608.url, align: "left" },
+  dolci: { url: photo7611.url, align: "right" },
+  birra: { url: photo7606.url, align: "wide" },
+  bollicine: { url: photo7609.url, align: "right" },
+};
 
 
 export const Route = createFileRoute("/")({
@@ -34,13 +52,44 @@ function MenuPage() {
       <Hero />
       <main className="mx-auto max-w-4xl px-6 pb-32">
         {menu.map((section, i) => (
-          <Section key={section.id} section={section} index={i} />
+          <div key={section.id}>
+            <Section section={section} index={i} />
+            {photoPlacements[section.id] && <Photo placement={photoPlacements[section.id]} />}
+          </div>
         ))}
         <Coperto />
       </main>
       <Footer />
       <WhatsAppFab />
     </div>
+  );
+}
+
+function Photo({ placement }: { placement: Placement }) {
+  const { url, align } = placement;
+  const widthClass =
+    align === "wide"
+      ? "w-full max-w-3xl"
+      : "w-full sm:w-[75%] max-w-xl";
+  const alignClass =
+    align === "left" ? "sm:mr-auto" : align === "right" ? "sm:ml-auto" : "mx-auto";
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      className={`my-8 sm:my-14 ${widthClass} ${alignClass}`}
+    >
+      <div className="overflow-hidden rounded-2xl shadow-[0_25px_60px_-25px_rgba(27,61,122,0.35)]">
+        <img
+          src={url}
+          alt=""
+          loading="lazy"
+          className="h-full w-full object-cover aspect-[4/5] sm:aspect-[4/3] transition-transform duration-[1200ms] ease-out hover:scale-[1.04]"
+        />
+      </div>
+    </motion.figure>
   );
 }
 
