@@ -238,6 +238,19 @@ function Hero() {
 }
 
 function Section({ section, index }: { section: MenuSection; index: number }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const items = useMemo<MenuItem[]>(() => {
+    if (section.id !== "pizze" || !mounted) return section.items;
+    const arr = [...section.items];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }, [section.id, section.items, mounted]);
+
   return (
     <motion.section
       id={section.id}
@@ -262,7 +275,7 @@ function Section({ section, index }: { section: MenuSection; index: number }) {
       </div>
 
       <ul className="space-y-7">
-        {section.items.map((item, i) => (
+        {items.map((item, i) => (
           <motion.li
             key={item.name}
             initial={{ opacity: 0, y: 12 }}
