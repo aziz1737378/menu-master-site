@@ -89,6 +89,7 @@ export const menu: MenuSection[] = [
       { name: "Mamma li Turchi", description: "Mozzarella di bufala, prosciutto crudo, pomodorini, basilico", price: "9", starred: true },
       { name: "Fantasia", description: "Mozzarella, funghi porcini, scamorza, speck, rucola", price: "9,5" },
       { name: "Pugliese", description: "Mozzarella, pomodorini in cottura, capocollo, cacioricotta", price: "9,5" },
+      { name: "Caprese", description: "Mozzarella, pomodorini, rucola, grana", price: "8" },
     ],
   },
   {
