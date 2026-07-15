@@ -65,7 +65,6 @@ export const menu: MenuSection[] = [
       { name: "Della Torre", description: "Pomodoro, mozzarella, salamino piccante, scamorza affumicata", price: "8,5", starred: true },
       { name: "Profumata", description: "Pomodoro, mozzarella, pancetta, cipolla", price: "8,5", starred: true },
       { name: "Fumé", description: "Pomodoro, mozzarella, scamorza, pancetta", price: "8,5" },
-      { name: "Caprese", description: "Mozzarella, pomodorini, rucola, grana", price: "8" },
       { name: "Capricciosa", description: "Pomodoro, mozzarella, cotto, funghi, carciofi, olive", price: "8" },
       { name: "Diavola", description: "Pomodoro, mozzarella, salamino piccante", price: "8" },
       { name: "Prosciutto e Funghi", description: "Pomodoro, mozzarella, prosciutto cotto, funghi", price: "8" },
@@ -89,6 +88,7 @@ export const menu: MenuSection[] = [
       { name: "Mamma li Turchi", description: "Mozzarella di bufala, prosciutto crudo, pomodorini, basilico", price: "9", starred: true },
       { name: "Fantasia", description: "Mozzarella, funghi porcini, scamorza, speck, rucola", price: "9,5" },
       { name: "Pugliese", description: "Mozzarella, pomodorini in cottura, capocollo, cacioricotta", price: "9,5" },
+      { name: "Caprese", description: "Mozzarella, pomodorini, rucola, grana", price: "8" },
     ],
   },
   {
