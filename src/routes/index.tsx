@@ -1,26 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { menu, type MenuSection } from "@/lib/menu-data";
-import photo7603 from "@/assets/photos/IMG_7603.jpg.asset.json";
-import photo7606 from "@/assets/photos/IMG_7606.jpg.asset.json";
-import photo7608 from "@/assets/photos/IMG_7608.jpg.asset.json";
-import photo7609 from "@/assets/photos/IMG_7609.jpg.asset.json";
-import photo7610 from "@/assets/photos/IMG_7610.jpg.asset.json";
-import photo7611 from "@/assets/photos/IMG_7611.jpg.asset.json";
-import photo7613 from "@/assets/photos/IMG_7613.jpg.asset.json";
+import { menu, type MenuItem, type MenuSection } from "@/lib/menu-data";
 
 const logoUrl = "/logo.png";
 
 type Placement = { url: string; align: "left" | "right" | "wide" };
 const photoPlacements: Record<string, Placement> = {
-  antipasti: { url: photo7613.url, align: "right" },
-  focacce: { url: photo7603.url, align: "left" },
-  pizze: { url: photo7610.url, align: "wide" },
-  bianche: { url: photo7608.url, align: "left" },
-  dolci: { url: photo7611.url, align: "right" },
-  birra: { url: photo7606.url, align: "wide" },
-  bollicine: { url: photo7609.url, align: "right" },
+  antipasti: { url: "/photos/IMG_7613.jpg", align: "right" },
+  focacce: { url: "/photos/IMG_7603.jpg", align: "left" },
+  pizze: { url: "/photos/IMG_7610.jpg", align: "wide" },
+  bianche: { url: "/photos/IMG_7608.jpg", align: "left" },
+  dolci: { url: "/photos/IMG_7611.jpg", align: "right" },
+  birra: { url: "/photos/IMG_7606.jpg", align: "wide" },
+  bollicine: { url: "/photos/IMG_7609.jpg", align: "right" },
 };
 
 
