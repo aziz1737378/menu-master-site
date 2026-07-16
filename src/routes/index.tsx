@@ -157,7 +157,7 @@ function Photo({ placement }: { placement: Placement }) {
       <div className="overflow-hidden rounded-2xl shadow-[0_25px_60px_-25px_rgba(27,61,122,0.35)]">
         <img
           src={url}
-          alt=""
+          alt={`Mamma li Turchi — pizzeria e ristorante a Tricase Porto (${align})`}
           loading="lazy"
           className="h-full w-full object-cover aspect-[4/5] sm:aspect-[4/3] transition-transform duration-[1200ms] ease-out hover:scale-[1.04]"
         />
