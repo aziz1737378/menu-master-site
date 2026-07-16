@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { menu, type MenuItem, type MenuSection } from "@/lib/menu-data";
-import { ItemIcon } from "@/components/ItemIcon";
 
 const logoUrl = "/logo.png";
 
@@ -365,26 +364,21 @@ function Section({ section, index }: { section: MenuSection; index: number }) {
             transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.25) }}
             className="group"
           >
-            <div className="flex items-start gap-3 sm:gap-4">
-              <ItemIcon item={item} sectionId={section.id} />
-              <div className="min-w-0 flex-1">
-                <div className="flex items-baseline">
-                  <h3 className="font-display text-lg sm:text-xl text-ink flex items-center gap-2">
-                    {item.starred && <span className="text-accent">★</span>}
-                    <span className="transition-colors group-hover:text-primary">{item.name}</span>
-                  </h3>
-                  <span className="price-dots" aria-hidden />
-                  <span className="font-display text-lg sm:text-xl tabular-nums text-primary">
-                    {item.price === "—" ? item.price : `€ ${item.price}`}
-                  </span>
-                </div>
-                {item.description && (
-                  <p className="mt-1 max-w-2xl text-sm sm:text-[15px] leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                )}
-              </div>
+            <div className="flex items-baseline">
+              <h3 className="font-display text-lg sm:text-xl text-ink flex items-center gap-2">
+                {item.starred && <span className="text-accent">★</span>}
+                <span className="transition-colors group-hover:text-primary">{item.name}</span>
+              </h3>
+              <span className="price-dots" aria-hidden />
+              <span className="font-display text-lg sm:text-xl tabular-nums text-primary">
+                {item.price === "—" ? item.price : `€ ${item.price}`}
+              </span>
             </div>
+            {item.description && (
+              <p className="mt-1 max-w-2xl text-sm sm:text-[15px] leading-relaxed text-muted-foreground">
+                {item.description}
+              </p>
+            )}
           </motion.li>
         ))}
       </ul>
