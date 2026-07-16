@@ -97,7 +97,7 @@ function toppings(text: string) {
   if (has("per")) ings.push(leaf("#a8b56a"));
   if (has("zucchin", "verdure grigliate")) ings.push(strip("#5a7a3a"));
   if (has("patatin", "patate")) ings.push(strip("#e8c46a"));
-  if (has("glassa", "balsamico")) ings.push(drizzle());
+  if (has("glassa", "balsamico")) ings.push(drizzle);
   if (has("pomodori secchi")) ings.push(dot("#7a2820", 2.2));
 
   if (ings.length === 0) return null;
