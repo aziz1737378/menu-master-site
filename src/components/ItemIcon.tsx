@@ -88,7 +88,7 @@ function toppings(text: string) {
   if (has("acciugh")) ings.push(strip("#8a7a5a"));
   if (has("capperi")) ings.push(dot("#4a6b3a", 1.8));
   if (has("olive")) ings.push(dot("#2b2118", 2.2));
-  if (has("funghi", "porcini", "champignon")) ings.push(mushroom());
+  if (has("funghi", "porcini", "champignon")) ings.push(mushroom);
   if (has("carciof")) ings.push(leaf("#5a7a3a"));
   if (has("cipoll")) ings.push(ring("#f0e8dc"));
   if (has("rucola", "basilico", "mentuccia")) ings.push(leaf("#3d7a3a"));
