@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { menu, type MenuItem, type MenuSection } from "@/lib/menu-data";
+import { ItemIcon } from "@/components/ItemIcon";
 
 const logoUrl = "/logo.png";
 
