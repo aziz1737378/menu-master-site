@@ -17,22 +17,102 @@ const photoPlacements: Record<string, Placement> = {
 };
 
 
+const SITE_URL = "https://mammaliturchi.lovable.app";
+const OG_IMAGE =
+  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0eb966c1-1240-42ab-8385-00991135d308";
+
+const SEO_TITLE =
+  "Mamma li Turchi — Pizzeria & Ristorante a Tricase Porto | Miglior Pizza nel Salento";
+const SEO_DESCRIPTION =
+  "Mamma li Turchi, storica pizzeria e ristorante a Tricase Porto (Salento, Puglia). Pizza cotta al forno, antipasti di mare, focacce, vini e birre del territorio. Prenota: 328 102 14 93.";
+
+const restaurantJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": `${SITE_URL}/#restaurant`,
+  name: "Mamma li Turchi",
+  alternateName: ["Mammaliturchi", "Mamma li Turchi Tricase Porto"],
+  description: SEO_DESCRIPTION,
+  url: SITE_URL,
+  telephone: "+39 328 102 14 93",
+  image: [OG_IMAGE, `${SITE_URL}/logo.png`],
+  logo: `${SITE_URL}/logo.png`,
+  priceRange: "€€",
+  servesCuisine: ["Pizza", "Italian", "Pugliese", "Salentina", "Mediterranean", "Seafood"],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Via Borgo Pescatori",
+    addressLocality: "Tricase Porto",
+    addressRegion: "Puglia",
+    postalCode: "73039",
+    addressCountry: "IT",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 39.9294,
+    longitude: 18.3872,
+  },
+  areaServed: ["Tricase", "Tricase Porto", "Salento", "Lecce", "Puglia"],
+  hasMenu: `${SITE_URL}/#menu`,
+  acceptsReservations: "True",
+  sameAs: [
+    "https://www.mammaliturchi.com",
+    "https://wa.me/393281021493",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: SITE_URL,
+  name: "Mamma li Turchi",
+  inLanguage: "it-IT",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${SITE_URL}/?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mamma li Turchi — Menu | Antipasteria · Ristorante · Pizzeria a Tricase Porto" },
+      { title: SEO_TITLE },
+      { name: "description", content: SEO_DESCRIPTION },
       {
-        name: "description",
+        name: "keywords",
         content:
-          "Il menu 2026 del Mamma li Turchi a Tricase Porto: antipasti, focacce, insalatone, pizze classiche, speciali e bianche, dolci, birre e vini del Salento.",
+          "pizza Tricase, pizzeria Tricase, pizzeria Tricase Porto, migliore pizza Tricase, ristorante Tricase Porto, ristorante Salento, Mamma li Turchi, mammaliturchi, pizza Salento, pizzeria Salento, pizza Lecce, ristorante Puglia, focacce Tricase, antipasti di mare Salento, Porto Museo di Tricase",
       },
-      { property: "og:title", content: "Mamma li Turchi — Menu | Antipasteria · Ristorante · Pizzeria a Tricase Porto" },
+      { name: "author", content: "Mamma li Turchi" },
+      { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
+      { name: "geo.region", content: "IT-75" },
+      { name: "geo.placename", content: "Tricase Porto, Salento, Puglia" },
+      { name: "geo.position", content: "39.9294;18.3872" },
+      { name: "ICBM", content: "39.9294, 18.3872" },
+      { property: "og:title", content: SEO_TITLE },
+      { property: "og:description", content: SEO_DESCRIPTION },
+      { property: "og:type", content: "restaurant.restaurant" },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:site_name", content: "Mamma li Turchi" },
+      { property: "og:locale", content: "it_IT" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: "Mamma li Turchi — Pizzeria a Tricase Porto" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SEO_TITLE },
+      { name: "twitter:description", content: SEO_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    scripts: [
       {
-        property: "og:description",
-        content: "Il menu 2026 del Mamma li Turchi a Tricase Porto: antipasti, focacce, insalatone, pizze classiche, speciali e bianche, dolci, birre e vini del Salento.",
+        type: "application/ld+json",
+        children: JSON.stringify(restaurantJsonLd),
       },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(websiteJsonLd),
+      },
     ],
   }),
   component: MenuPage,
