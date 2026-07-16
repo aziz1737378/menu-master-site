@@ -270,14 +270,14 @@ function Hero() {
           alt="Mamma li Turchi"
           className="mx-auto h-40 sm:h-52 w-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
         />
-        <motion.p
+        <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
           className="mt-6 text-xs uppercase tracking-[0.35em] text-secondary"
         >
-          Antipasteria · Ristorante · Pizzeria
-        </motion.p>
+          Pizzeria · Ristorante · Antipasteria a Tricase Porto
+        </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
