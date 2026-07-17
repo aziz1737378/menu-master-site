@@ -3,6 +3,7 @@ export type MenuItem = {
   description?: string;
   price: string;
   starred?: boolean;
+  image?: string;
 };
 
 export type MenuSection = {
@@ -53,27 +54,27 @@ export const menu: MenuSection[] = [
     title: "Pizze",
     items: [
       // Tutte le pizze — ordinate dal prezzo più alto al più basso (★ = speciali)
-      { name: "Capocollo", description: "Pomodoro, mozzarella, capocollo di Martina Franca, bocconcino di bufala, rucola", price: "9,5", starred: true },
-      { name: "Squisita", description: "Pomodoro, mozzarella, prosciutto cotto, funghi porcini, gorgonzola", price: "9,5", starred: true },
-      { name: "Starry", description: "Pomodoro, mozzarella, bresaola, rucola, grana", price: "9", starred: true },
-      { name: "Salsiccia", description: "Pomodoro, mozzarella, salsiccia, rucola, grana", price: "9", starred: true },
-      { name: "Contessa", description: "Pomodoro, mozzarella, gorgonzola, speck, noci", price: "9", starred: true },
-      { name: "Piccantina", description: "Pomodoro, mozzarella, salamino piccante, gorgonzola, rucola", price: "9", starred: true },
-      { name: "Quattro Formaggi", description: "Pomodoro, mozzarella, gorgonzola, scamorza, grana", price: "9" },
-      { name: "Mediterranea", description: "Pomodoro, mozzarella, prosciutto crudo, rucola, grana", price: "9" },
-      { name: "Bufalina", description: "Pomodoro, mozzarella di bufala, basilico", price: "8,5", starred: true },
-      { name: "Della Torre", description: "Pomodoro, mozzarella, salamino piccante, scamorza affumicata", price: "8,5", starred: true },
-      { name: "Profumata", description: "Pomodoro, mozzarella, pancetta, cipolla", price: "8,5", starred: true },
-      { name: "Fumé", description: "Pomodoro, mozzarella, scamorza, pancetta", price: "8,5" },
-      { name: "Capricciosa", description: "Pomodoro, mozzarella, cotto, funghi, carciofi, olive", price: "8" },
-      { name: "Diavola", description: "Pomodoro, mozzarella, salamino piccante", price: "8" },
-      { name: "Prosciutto e Funghi", description: "Pomodoro, mozzarella, prosciutto cotto, funghi", price: "8" },
-      { name: "Salentina", description: "Pomodoro, mozzarella, tonno, cipolla", price: "7,5" },
-      { name: "Contadina", description: "Pomodoro, mozzarella, verdure grigliate", price: "7" },
-      { name: "Peter Pan", description: "Pomodoro, mozzarella, würstel", price: "7" },
-      { name: "Chips", description: "Pomodoro, mozzarella, patatine fritte", price: "7" },
-      { name: "Napoli", description: "Pomodoro, mozzarella, acciughe, capperi", price: "6,5" },
-      { name: "Margherita", description: "Pomodoro, mozzarella, olive", price: "6" },
+      { name: "Capocollo", description: "Pomodoro, mozzarella, capocollo di Martina Franca, bocconcino di bufala, rucola", price: "9,5", starred: true, image: "/menu/pizze/capocollo.jpg" },
+      { name: "Squisita", description: "Pomodoro, mozzarella, prosciutto cotto, funghi porcini, gorgonzola", price: "9,5", starred: true, image: "/menu/pizze/squisita.jpg" },
+      { name: "Starry", description: "Pomodoro, mozzarella, bresaola, rucola, grana", price: "9", starred: true, image: "/menu/pizze/starry.jpg" },
+      { name: "Salsiccia", description: "Pomodoro, mozzarella, salsiccia, rucola, grana", price: "9", starred: true, image: "/menu/pizze/salsiccia.jpg" },
+      { name: "Contessa", description: "Pomodoro, mozzarella, gorgonzola, speck, noci", price: "9", starred: true, image: "/menu/pizze/contessa.jpg" },
+      { name: "Piccantina", description: "Pomodoro, mozzarella, salamino piccante, gorgonzola, rucola", price: "9", starred: true, image: "/menu/pizze/piccantina.jpg" },
+      { name: "Quattro Formaggi", description: "Pomodoro, mozzarella, gorgonzola, scamorza, grana", price: "9", image: "/menu/pizze/quattro-formaggi.jpg" },
+      { name: "Mediterranea", description: "Pomodoro, mozzarella, prosciutto crudo, rucola, grana", price: "9", image: "/menu/pizze/mediterranea.jpg" },
+      { name: "Bufalina", description: "Pomodoro, mozzarella di bufala, basilico", price: "8,5", starred: true, image: "/menu/pizze/bufalina.jpg" },
+      { name: "Della Torre", description: "Pomodoro, mozzarella, salamino piccante, scamorza affumicata", price: "8,5", starred: true, image: "/menu/pizze/della-torre.jpg" },
+      { name: "Profumata", description: "Pomodoro, mozzarella, pancetta, cipolla", price: "8,5", starred: true, image: "/menu/pizze/profumata.jpg" },
+      { name: "Fumé", description: "Pomodoro, mozzarella, scamorza, pancetta", price: "8,5", image: "/menu/pizze/fume.jpg" },
+      { name: "Capricciosa", description: "Pomodoro, mozzarella, cotto, funghi, carciofi, olive", price: "8", image: "/menu/pizze/capricciosa.jpg" },
+      { name: "Diavola", description: "Pomodoro, mozzarella, salamino piccante", price: "8", image: "/menu/pizze/diavola.jpg" },
+      { name: "Prosciutto e Funghi", description: "Pomodoro, mozzarella, prosciutto cotto, funghi", price: "8", image: "/menu/pizze/prosciutto-funghi.jpg" },
+      { name: "Salentina", description: "Pomodoro, mozzarella, tonno, cipolla", price: "7,5", image: "/menu/pizze/salentina.jpg" },
+      { name: "Contadina", description: "Pomodoro, mozzarella, verdure grigliate", price: "7", image: "/menu/pizze/contadina.jpg" },
+      { name: "Peter Pan", description: "Pomodoro, mozzarella, würstel", price: "7", image: "/menu/pizze/peter-pan.jpg" },
+      { name: "Chips", description: "Pomodoro, mozzarella, patatine fritte", price: "7", image: "/menu/pizze/chips.jpg" },
+      { name: "Napoli", description: "Pomodoro, mozzarella, acciughe, capperi", price: "6,5", image: "/menu/pizze/napoli.jpg" },
+      { name: "Margherita", description: "Pomodoro, mozzarella, olive", price: "6", image: "/menu/pizze/margherita.jpg" },
     ],
     note: "Alcuni prodotti potrebbero essere surgelati",
   },
