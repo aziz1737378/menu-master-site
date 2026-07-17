@@ -362,23 +362,37 @@ function Section({ section, index }: { section: MenuSection; index: number }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.25) }}
-            className="group"
+            className="group flex items-start gap-4 sm:gap-5"
           >
-            <div className="flex items-baseline">
-              <h3 className="font-display text-lg sm:text-xl text-ink flex items-center gap-2">
-                {item.starred && <span className="text-accent">★</span>}
-                <span className="transition-colors group-hover:text-primary">{item.name}</span>
-              </h3>
-              <span className="price-dots" aria-hidden />
-              <span className="font-display text-lg sm:text-xl tabular-nums text-primary">
-                {item.price === "—" ? item.price : `€ ${item.price}`}
-              </span>
-            </div>
-            {item.description && (
-              <p className="mt-1 max-w-2xl text-sm sm:text-[15px] leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
+            {item.image && (
+              <div className="flex-shrink-0 overflow-hidden rounded-full ring-1 ring-border/60 shadow-[0_10px_25px_-15px_rgba(27,61,122,0.35)]">
+                <img
+                  src={item.image}
+                  alt={`${item.name} — pizza di Mamma li Turchi`}
+                  loading="lazy"
+                  width={112}
+                  height={112}
+                  className="h-16 w-16 sm:h-20 sm:w-20 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+              </div>
             )}
+            <div className="min-w-0 flex-1">
+              <div className="flex items-baseline">
+                <h3 className="font-display text-lg sm:text-xl text-ink flex items-center gap-2">
+                  {item.starred && <span className="text-accent">★</span>}
+                  <span className="transition-colors group-hover:text-primary">{item.name}</span>
+                </h3>
+                <span className="price-dots" aria-hidden />
+                <span className="font-display text-lg sm:text-xl tabular-nums text-primary">
+                  {item.price === "—" ? item.price : `€ ${item.price}`}
+                </span>
+              </div>
+              {item.description && (
+                <p className="mt-1 max-w-2xl text-sm sm:text-[15px] leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+              )}
+            </div>
           </motion.li>
         ))}
       </ul>
