@@ -82,14 +82,15 @@ export const menu: MenuSection[] = [
     id: "bianche",
     title: "Pizze Bianche",
     items: [
-      { name: "Napulè", description: "Mozzarella, acciughe, capperi, pomodorini in cottura", price: "7" },
-      { name: "Falanita", description: "Mozzarella, funghi porcini e champignon, pancetta", price: "9" },
-      { name: "Codice da Vinci", description: "Mozzarella, brie, speck, noci", price: "9" },
-      { name: "Farasuli", description: "Mozzarella, scamorza, salamino piccante, tonno, rucola", price: "9" },
-      { name: "Mamma li Turchi", description: "Mozzarella di bufala, prosciutto crudo, pomodorini, basilico", price: "9", starred: true },
-      { name: "Fantasia", description: "Mozzarella, funghi porcini, scamorza, speck, rucola", price: "9,5" },
-      { name: "Pugliese", description: "Mozzarella, pomodorini in cottura, capocollo, cacioricotta", price: "9,5" },
-      { name: "Caprese", description: "Mozzarella, pomodorini, rucola, grana", price: "8" },
+      { name: "Napulè", description: "Mozzarella, acciughe, capperi, pomodorini in cottura", price: "7", image: "/menu/bianche/napule.jpg" },
+      { name: "Falanita", description: "Mozzarella, funghi porcini e champignon, pancetta", price: "9", image: "/menu/bianche/falanita.jpg" },
+      { name: "Codice da Vinci", description: "Mozzarella, brie, speck, noci", price: "9", image: "/menu/bianche/codice-da-vinci.jpg" },
+      { name: "Farasuli", description: "Mozzarella, scamorza, salamino piccante, tonno, rucola", price: "9", image: "/menu/bianche/farasuli.jpg" },
+      { name: "Mamma li Turchi", description: "Mozzarella di bufala, prosciutto crudo, pomodorini, basilico", price: "9", starred: true, image: "/menu/bianche/mamma-li-turchi.jpg" },
+      { name: "Fantasia", description: "Mozzarella, funghi porcini, scamorza, speck, rucola", price: "9,5", image: "/menu/bianche/fantasia.jpg" },
+      { name: "Pugliese", description: "Mozzarella, pomodorini in cottura, capocollo, cacioricotta", price: "9,5", image: "/menu/bianche/pugliese.jpg" },
+      { name: "Caprese", description: "Mozzarella, pomodorini, rucola, grana", price: "8", image: "/menu/bianche/caprese.jpg" },
+
     ],
   },
   {
